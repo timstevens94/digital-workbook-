@@ -189,6 +189,66 @@ textarea::placeholder { color: #bbb; }
 
 .insight-box strong { color: var(--green); font-style: normal; }
 
+/* AI GENERATE BUTTON */
+.ai-generate-btn {
+  width: 100%; margin-top: 20px;
+  padding: 14px 20px; border-radius: 10px; border: none;
+  background: linear-gradient(135deg, var(--navy), #2a4a7a);
+  color: white; font-family: 'Montserrat', sans-serif;
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; transition: all 0.15s; letter-spacing: 0.5px;
+}
+
+.ai-generate-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.ai-generate-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+
+/* AI RESULT BOX */
+.ai-result {
+  display: none; margin-top: 16px;
+  background: linear-gradient(135deg, #0d1117, #1a2b4a);
+  border-radius: 12px; padding: 20px 22px;
+  border: 1px solid rgba(141,198,63,0.3);
+}
+
+.ai-result.visible { display: block; }
+
+.ai-result-label {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--green);
+  margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+}
+
+.ai-result-label::before {
+  content: '✦'; font-size: 12px;
+}
+
+.ai-result-text {
+  font-size: 15px; color: rgba(255,255,255,0.88); line-height: 1.75;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ai-result-text strong { color: var(--green); font-weight: 600; }
+
+.ai-loading {
+  display: flex; align-items: center; gap: 10px;
+  color: rgba(255,255,255,0.5); font-size: 13px;
+}
+
+.ai-dots span {
+  display: inline-block; width: 6px; height: 6px;
+  background: var(--green); border-radius: 50%;
+  animation: dotPulse 1.2s infinite;
+}
+
+.ai-dots span:nth-child(2) { animation-delay: 0.2s; }
+.ai-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotPulse {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
 .generate-section { margin: 40px 0 0; text-align: center; }
 
 .generate-btn {
@@ -200,25 +260,22 @@ textarea::placeholder { color: #bbb; }
 }
 
 .generate-btn:hover { background: #2a4070; transform: translateY(-1px); }
-
 .generate-note { font-size: 12px; color: var(--light); margin-top: 10px; }
 
 .results-wrap { display: none; margin-top: 40px; }
 .results-wrap.visible { display: block; }
 
-/* RESULTS CARDS */
 .result-card {
   background: var(--white); border-radius: 20px;
   border: 0.5px solid var(--border); overflow: hidden; margin-bottom: 20px;
 }
 
 .result-card-header {
-  padding: 20px 28px;
-  display: flex; align-items: center; gap: 12px;
+  padding: 20px 28px; display: flex; align-items: center; gap: 12px;
 }
 
 .result-card-header.navy { background: var(--navy); }
-.result-card-header.green { background: var(--green); }
+.result-card-header.green { background: #1A3A2A; }
 .result-card-header.blue { background: #1A3A5A; }
 .result-card-header.dark { background: #111827; }
 
@@ -230,7 +287,6 @@ textarea::placeholder { color: #bbb; }
 .result-card-icon { font-size: 20px; flex-shrink: 0; }
 .result-card-body { padding: 24px 28px; }
 
-/* AVATAR */
 .avatar-header-inner {
   background: linear-gradient(135deg, var(--navy) 0%, #2a4a7a 100%);
   padding: 32px 28px; display: flex; align-items: center; gap: 24px;
@@ -242,7 +298,7 @@ textarea::placeholder { color: #bbb; }
   background: #2a4070; display: flex; align-items: center; justify-content: center;
 }
 
-.avatar-name {
+.avatar-name-display {
   font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 900;
   color: white; margin-bottom: 4px;
 }
@@ -256,7 +312,7 @@ textarea::placeholder { color: #bbb; }
 }
 
 .avatar-stats {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
 }
 
 .avatar-stat { background: var(--bg); border-radius: 10px; padding: 14px 16px; }
@@ -268,7 +324,6 @@ textarea::placeholder { color: #bbb; }
 
 .avatar-stat-value { font-size: 13px; color: var(--navy); font-weight: 600; line-height: 1.4; }
 
-/* CONTENT IDEAS */
 .content-list { display: flex; flex-direction: column; gap: 14px; }
 
 .content-item {
@@ -285,11 +340,9 @@ textarea::placeholder { color: #bbb; }
 .content-text { font-size: 14px; color: var(--navy); line-height: 1.6; }
 .content-label {
   font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
-  letter-spacing: 2px; text-transform: uppercase; color: var(--light);
-  margin-bottom: 4px;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--light); margin-bottom: 4px;
 }
 
-/* GPT PROMPTS */
 .gpt-list { display: flex; flex-direction: column; gap: 14px; }
 
 .gpt-item {
@@ -312,7 +365,6 @@ textarea::placeholder { color: #bbb; }
 
 .copy-btn:hover { background: var(--green); color: var(--navy); }
 
-/* QUALIFIED REMINDER */
 .reminder-box {
   background: linear-gradient(135deg, #0f2027, #1a3a2a);
   border-radius: 14px; padding: 24px; text-align: center;
@@ -324,10 +376,8 @@ textarea::placeholder { color: #bbb; }
 }
 
 .reminder-text em { color: var(--green); font-style: normal; }
-
 .reminder-sub { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
 
-/* ANSWERS */
 .answer-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 0.5px solid var(--border); }
 .answer-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
 .answer-q {
@@ -336,7 +386,6 @@ textarea::placeholder { color: #bbb; }
 }
 .answer-a { font-size: 14px; color: var(--navy); line-height: 1.6; }
 
-/* DOWNLOAD */
 .download-section { margin-top: 28px; }
 .download-title {
   font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
@@ -368,12 +417,40 @@ textarea::placeholder { color: #bbb; }
 
 .scroll-top:hover { background: #2a4070; }
 
+/* Master AI result */
+.master-ai-result {
+  background: linear-gradient(135deg, #0d1117, #1a2b4a);
+  border-radius: 16px; padding: 28px;
+  border: 1px solid rgba(141,198,63,0.4);
+  margin-bottom: 24px;
+}
+
+.master-ai-label {
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--green);
+  margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+}
+
+.master-ai-section { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.master-ai-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+.master-ai-section-title {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4);
+  margin-bottom: 8px;
+}
+
+.master-ai-section-text {
+  font-size: 15px; color: rgba(255,255,255,0.88); line-height: 1.75;
+}
+
+.master-ai-section-text strong { color: var(--green); }
+
 @media print {
   .site-header, .progress-bar, .generate-section, .scroll-top,
-  .section-card, .hero, .download-section { display: none !important; }
+  .section-card, .hero, .download-section, .ai-generate-btn { display: none !important; }
   .results-wrap { display: block !important; }
   body { background: white; }
-  .print-hide { display: none !important; }
 }
 </style>
 </head>
@@ -389,7 +466,7 @@ textarea::placeholder { color: #bbb; }
 <div class="hero">
   <p class="hero-eyebrow">Digital Workbook</p>
   <h1 class="hero-title">Remember<br>Who You <em>Are</em></h1>
-  <p class="hero-sub">Go deeper. Take your time. At the end you'll have a clear picture of who you are, where you're going, and exactly who you're talking to online.</p>
+  <p class="hero-sub">Go deeper. Take your time. The AI will read your answers and help you find clarity you didn't know you had.</p>
   <div class="hero-rule"></div>
 </div>
 
@@ -412,7 +489,7 @@ textarea::placeholder { color: #bbb; }
       <textarea placeholder="Natural, relaxed, like myself..." rows="3" data-key="camera1"></textarea>
       <div class="deeper-prompt">
         <p class="deeper-label">Go deeper</p>
-        <textarea placeholder="What specifically do you feel free to do or say? What does your voice sound like? What topics do you naturally talk about?" rows="3" data-key="camera1b"></textarea>
+        <textarea placeholder="What specifically do you feel free to do or say? What does your voice sound like?" rows="3" data-key="camera1b"></textarea>
       </div>
     </div>
 
@@ -430,8 +507,14 @@ textarea::placeholder { color: #bbb; }
       <textarea placeholder="Fear of judgement, not knowing what to say..." rows="3" data-key="camera3"></textarea>
       <div class="deeper-prompt">
         <p class="deeper-label">Go deeper</p>
-        <textarea placeholder="Whose opinion are you most afraid of? What is the worst thing someone could think or say?" rows="3" data-key="camera3b"></textarea>
+        <textarea placeholder="Whose opinion are you most afraid of? What is the worst thing someone could think?" rows="3" data-key="camera3b"></textarea>
       </div>
+    </div>
+
+    <button class="ai-generate-btn" onclick="generateSection('camera')">✦ Reveal what's really blocking you</button>
+    <div class="ai-result" id="ai-camera">
+      <div class="ai-result-label">AI Insight — Your Camera Blocker</div>
+      <div class="ai-result-text" id="ai-camera-text"></div>
     </div>
   </div>
 </div>
@@ -462,7 +545,7 @@ textarea::placeholder { color: #bbb; }
       <textarea placeholder="It has taught me..." rows="3" data-key="identity2"></textarea>
       <div class="deeper-prompt">
         <p class="deeper-label">Go deeper</p>
-        <textarea placeholder="What do you know now that you wish you knew at the start? What would you tell someone just beginning?" rows="3" data-key="identity2b"></textarea>
+        <textarea placeholder="What do you know now that you wish you knew at the start?" rows="3" data-key="identity2b"></textarea>
       </div>
     </div>
 
@@ -473,8 +556,14 @@ textarea::placeholder { color: #bbb; }
 
     <div class="prompt-group">
       <label class="prompt-label">The message only I can carry is...</label>
-      <span class="prompt-hint">The overlap of your belief, your experience, and what people need</span>
-      <textarea placeholder="My message is..." rows="4" data-key="identity4"></textarea>
+      <span class="prompt-hint">Don't overthink this — write whatever comes. The AI will help refine it.</span>
+      <textarea placeholder="My message is... (rough thoughts are fine)" rows="4" data-key="identity4"></textarea>
+    </div>
+
+    <button class="ai-generate-btn" onclick="generateSection('identity')">✦ Generate my message</button>
+    <div class="ai-result" id="ai-identity">
+      <div class="ai-result-label">AI Generated — Your Message</div>
+      <div class="ai-result-text" id="ai-identity-text"></div>
     </div>
   </div>
 </div>
@@ -489,7 +578,7 @@ textarea::placeholder { color: #bbb; }
     </div>
   </div>
   <div class="section-card-body">
-    <div class="insight-box"><p>"This has nothing to do with getting more customers. That will happen anyway. This is about <strong>something bigger.</strong>"</p></div>
+    <div class="insight-box"><p>"This has nothing to do with getting more customers. This is about <strong>something bigger.</strong>"</p></div>
 
     <div class="prompt-group">
       <label class="prompt-label">The change I want to see in the world is...</label>
@@ -512,12 +601,17 @@ textarea::placeholder { color: #bbb; }
 
     <div class="prompt-group">
       <label class="prompt-label">The people I feel most called to help are...</label>
-      <span class="prompt-hint">Specific names or types of people that come to mind</span>
       <textarea placeholder="The people I feel most called to help are..." rows="3" data-key="direction4"></textarea>
       <div class="deeper-prompt">
         <p class="deeper-label">Go deeper</p>
         <textarea placeholder="Why these people? What do you understand about them that others don't?" rows="3" data-key="direction4b"></textarea>
       </div>
+    </div>
+
+    <button class="ai-generate-btn" onclick="generateSection('direction')">✦ Write my manifesto</button>
+    <div class="ai-result" id="ai-direction">
+      <div class="ai-result-label">AI Generated — Your Manifesto</div>
+      <div class="ai-result-text" id="ai-direction-text"></div>
     </div>
   </div>
 </div>
@@ -554,6 +648,12 @@ textarea::placeholder { color: #bbb; }
       <span class="prompt-hint">Not perfect. Not polished. Just true.</span>
       <textarea placeholder="I could post about..." rows="3" data-key="follow4"></textarea>
     </div>
+
+    <button class="ai-generate-btn" onclick="generateSection('follow')">✦ Write my social bio + elevator pitch</button>
+    <div class="ai-result" id="ai-follow">
+      <div class="ai-result-label">AI Generated — Your Bio & Pitch</div>
+      <div class="ai-result-text" id="ai-follow-text"></div>
+    </div>
   </div>
 </div>
 
@@ -569,7 +669,7 @@ textarea::placeholder { color: #bbb; }
   <div class="section-card-body">
     <div class="insight-box"><p>"When you know exactly who you're talking to, <strong>content becomes a conversation.</strong>"</p></div>
 
-    <p style="font-size:14px;color:var(--mid);margin-bottom:24px;line-height:1.7;">Answer these questions about your ideal follower. At the end, we'll generate their profile and give you content ideas aimed directly at them.</p>
+    <p style="font-size:14px;color:var(--mid);margin-bottom:24px;line-height:1.7;">Answer these questions about your ideal follower. The AI will generate their full profile, content ideas, and ChatGPT prompts tailored specifically to them.</p>
 
     <div class="prompt-group">
       <label class="prompt-label">Gender</label>
@@ -652,13 +752,11 @@ textarea::placeholder { color: #bbb; }
 
     <div class="prompt-group">
       <label class="prompt-label">What keeps them up at night?</label>
-      <span class="prompt-hint">Their biggest worry, fear or frustration</span>
       <textarea placeholder="They worry about..." rows="3" data-key="avatar1"></textarea>
     </div>
 
     <div class="prompt-group">
       <label class="prompt-label">What do they dream about?</label>
-      <span class="prompt-hint">Their ideal outcome — what does success look like for them?</span>
       <textarea placeholder="They dream of..." rows="3" data-key="avatar2"></textarea>
     </div>
 
@@ -669,33 +767,37 @@ textarea::placeholder { color: #bbb; }
 
     <div class="prompt-group">
       <label class="prompt-label">What would change in their life if they found you?</label>
-      <span class="prompt-hint">This is the transformation you offer</span>
       <textarea placeholder="If they found me, they would..." rows="3" data-key="avatar4"></textarea>
     </div>
 
     <div class="prompt-group">
       <label class="prompt-label">Give your avatar a name</label>
-      <span class="prompt-hint">Make it real — a name makes it personal</span>
       <textarea placeholder="Their name is..." rows="1" style="min-height:50px;" data-key="avatarName"></textarea>
     </div>
   </div>
 </div>
 
-<!-- GENERATE -->
+<!-- MASTER GENERATE -->
 <div class="generate-section">
-  <button class="generate-btn" onclick="generateResults()">✦ Generate My Avatar &amp; Content Plan</button>
-  <p class="generate-note">Takes 2 seconds. No account required.</p>
+  <button class="generate-btn" onclick="generateAll()">✦ Generate Everything — My Full Clarity Report</button>
+  <p class="generate-note">The AI reads all your answers and generates your complete content identity. Takes about 10 seconds.</p>
 </div>
 
 <!-- RESULTS -->
 <div class="results-wrap" id="results">
+
+  <!-- MASTER AI RESULT -->
+  <div class="master-ai-result" id="masterAiResult">
+    <div class="master-ai-label">✦ Your Full Clarity Report — AI Generated</div>
+    <div id="masterAiContent"></div>
+  </div>
 
   <!-- AVATAR -->
   <div class="result-card" id="avatarCard">
     <div class="avatar-header-inner">
       <div class="avatar-image-wrap" id="avatarImg"></div>
       <div>
-        <div class="avatar-name" id="avatarNameDisplay"></div>
+        <div class="avatar-name-display" id="avatarNameDisplay"></div>
         <div class="avatar-tagline" id="avatarTagline"></div>
       </div>
     </div>
@@ -714,14 +816,14 @@ textarea::placeholder { color: #bbb; }
     <div class="result-card-body">
       <div class="reminder-box">
         <p class="reminder-text" id="reminderText"></p>
-        <p class="reminder-sub">Every piece of content you create should feel like a direct conversation with <span id="reminderName"></span>. Not a broadcast to thousands. A message to one person who needs to hear exactly what you have to say.</p>
+        <p class="reminder-sub">Every piece of content you create should feel like a direct conversation with <span id="reminderName"></span>. Not a broadcast to thousands. A message to one person.</p>
       </div>
     </div>
   </div>
 
   <!-- CONTENT IDEAS -->
   <div class="result-card" id="contentCard">
-    <div class="result-card-header green" style="background:#1A3A2A;">
+    <div class="result-card-header green">
       <span class="result-card-icon">💡</span>
       <div class="result-card-title">5 Content Ideas for Your Avatar</div>
     </div>
@@ -737,7 +839,7 @@ textarea::placeholder { color: #bbb; }
       <div class="result-card-title">5 Questions Your Avatar Is Already Asking</div>
     </div>
     <div class="result-card-body">
-      <p style="font-size:13px;color:var(--mid);margin-bottom:16px;line-height:1.6;">These are the questions <span class="avatar-name-inline" style="font-weight:700;color:var(--navy);"></span> is searching for answers to right now. You are qualified to answer every single one.</p>
+      <p style="font-size:13px;color:var(--mid);margin-bottom:16px;line-height:1.6;">You are qualified to answer every single one of these.</p>
       <div class="content-list" id="convoList"></div>
     </div>
   </div>
@@ -749,12 +851,12 @@ textarea::placeholder { color: #bbb; }
       <div class="result-card-title">5 ChatGPT Prompts — Copy &amp; Paste</div>
     </div>
     <div class="result-card-body">
-      <p style="font-size:13px;color:var(--mid);margin-bottom:16px;line-height:1.6;">Paste any of these into ChatGPT to generate more content ideas, captions, or scripts tailored to your avatar.</p>
+      <p style="font-size:13px;color:var(--mid);margin-bottom:16px;line-height:1.6;">Paste any of these into ChatGPT to get more content ideas tailored to your avatar.</p>
       <div class="gpt-list" id="gptList"></div>
     </div>
   </div>
 
-  <!-- DOWNLOAD AVATAR -->
+  <!-- DOWNLOADS -->
   <div class="download-section">
     <p class="download-title">Downloads</p>
     <div class="download-row">
@@ -784,15 +886,11 @@ function selectChoice(group, value, el, type) {
   if (type === 'multi') {
     el.classList.toggle('selected');
     if (!choices[group]) choices[group] = [];
-    if (el.classList.contains('selected')) {
-      choices[group].push(value);
-    } else {
-      choices[group] = choices[group].filter(v => v !== value);
-    }
+    if (el.classList.contains('selected')) choices[group].push(value);
+    else choices[group] = choices[group].filter(v => v !== value);
     return;
   }
-  const grid = el.parentElement;
-  grid.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+  el.parentElement.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
   el.classList.add('selected');
   choices[group] = value;
 }
@@ -808,7 +906,99 @@ window.addEventListener('scroll', () => {
   if (total > 0) document.getElementById('progressBar').style.width = (scrolled / total * 100) + '%';
 });
 
-function generateResults() {
+async function callClaude(prompt) {
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 1000,
+      messages: [{ role: 'user', content: prompt }]
+    })
+  });
+  const data = await response.json();
+  return data.content[0].text;
+}
+
+function showLoading(elId) {
+  const el = document.getElementById(elId);
+  el.classList.add('visible');
+  document.getElementById(elId + '-text').innerHTML = '<div class="ai-loading">Generating <div class="ai-dots"><span></span><span></span><span></span></div></div>';
+}
+
+function showResult(elId, text) {
+  document.getElementById(elId + '-text').innerHTML = text.replace(/\n\n/g, '<br><br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+}
+
+async function generateSection(section) {
+  const btn = event.target;
+  btn.disabled = true;
+  btn.textContent = 'Generating...';
+
+  try {
+    let prompt = '';
+
+    if (section === 'camera') {
+      prompt = `You are a communication coach reading someone's honest answers about what stops them from showing up on camera. Be warm, direct, and insightful. In 2-3 short paragraphs, reflect back what you see as their real blocker and give them one reframe that could unlock them. Do not use bullet points. Write in second person ("you").
+
+Their answers:
+- When speaking to a friend they feel: ${getVal('camera1')} ${getVal('camera1b')}
+- On camera they become: ${getVal('camera2')} ${getVal('camera2b')}
+- The thing that stops them: ${getVal('camera3')} ${getVal('camera3b')}`;
+
+    } else if (section === 'identity') {
+      prompt = `You are a brand strategist helping a business owner find their core message. Read their answers and generate:
+
+1. A one-sentence CORE MESSAGE (bold) — what they stand for in plain English, no jargon
+2. A one-line CONTENT NICHE — who they help and how in 10 words or less
+3. A SHORT PARAGRAPH explaining why their message matters and why they are the right person to carry it
+
+Their answers:
+- Started business because: ${getVal('identity1')} ${getVal('identity1b')}
+- Business has taught them: ${getVal('identity2')} ${getVal('identity2b')}
+- People they want to reach are searching for: ${getVal('identity3')}
+- Their rough message idea: ${getVal('identity4')}
+
+Write warmly and powerfully. No bullet points in the output.`;
+
+    } else if (section === 'direction') {
+      prompt = `You are a speechwriter. Read this person's answers and write them a powerful personal MANIFESTO — 3 short paragraphs that capture who they are, what they believe, and where they're going. It should feel like something they could read at the start of every day. Make it emotional, grounded, and specific to their answers. No clichés.
+
+Their answers:
+- Change they want to see: ${getVal('direction1')} ${getVal('direction1b')}
+- What they want family/community to see: ${getVal('direction2')}
+- Known for if money didn't matter: ${getVal('direction3')}
+- People they feel called to help: ${getVal('direction4')} ${getVal('direction4b')}`;
+
+    } else if (section === 'follow') {
+      prompt = `You are a social media strategist. Based on this person's answers, generate:
+
+1. A SOCIAL MEDIA BIO (under 150 characters) — punchy, specific, no emojis
+2. An ELEVATOR PITCH (2 sentences) — who they help, what they help them do, why they're the right person
+3. One FIRST POST IDEA based on what they said they could post this week
+
+Their answers:
+- Reason to follow them: ${getVal('follow1')}
+- Person they most want to reach: ${getVal('follow2')}
+- How they want people to feel: ${getVal('follow3')}
+- Content idea this week: ${getVal('follow4')}`;
+    }
+
+    const result = await callClaude(prompt);
+    showResult('ai-' + section, result);
+    btn.textContent = '✦ Regenerate';
+  } catch(e) {
+    document.getElementById('ai-' + section + '-text').innerHTML = '<span style="color:#ff6b6b;">Something went wrong. Please try again.</span>';
+    btn.textContent = '✦ Try again';
+  }
+  btn.disabled = false;
+}
+
+async function generateAll() {
+  const btn = event.target;
+  btn.disabled = true;
+  btn.textContent = 'Generating your report...';
+
   const name = getVal('avatarName') || 'Alex';
   const gender = choices.gender || 'Male';
   const age = choices.age || '36–45';
@@ -816,54 +1006,81 @@ function generateResults() {
   const employment = choices.employment || 'Self-employed';
   const relationship = choices.relationship || 'Married';
   const family = choices.family || 'Parent — young kids';
-  const platforms = Array.isArray(choices.platform) && choices.platform.length > 0
-    ? choices.platform.join(', ') : 'Facebook, Instagram';
+  const platforms = Array.isArray(choices.platform) && choices.platform.length ? choices.platform.join(', ') : 'Facebook, Instagram';
 
   const nightmare = getVal('avatar1') || 'not making enough progress';
   const dream = getVal('avatar2') || 'financial freedom and more time with family';
-  const tried = getVal('avatar3') || 'various approaches that haven\'t quite worked';
-  const transformation = getVal('avatar4') || 'gain real clarity and confidence';
-  const myMessage = getVal('identity4') || 'your lived experience and belief';
-  const myExperience = getVal('identity2') || 'running your own business';
+  const tried = getVal('avatar3') || 'various approaches that haven\'t worked';
+  const transformation = getVal('avatar4') || 'gain clarity and confidence';
+  const myMessage = getVal('identity4') || 'their lived experience and belief';
   const myBelief = getVal('identity1') || 'that it\'s possible to build something real';
+  const myExperience = getVal('identity2') || 'running their own business';
 
+  // Generate master AI report
+  try {
+    const masterPrompt = `You are a content strategist and clarity coach. Read all of this person's answers and generate a FULL CLARITY REPORT with these sections:
+
+**YOUR CORE MESSAGE** (1 bold sentence)
+**YOUR MANIFESTO** (2 short paragraphs — who you are, what you believe, where you're going)
+**YOUR SOCIAL BIO** (under 150 characters)
+**YOUR ELEVATOR PITCH** (2 sentences)
+**WHAT'S REALLY BLOCKING YOU ON CAMERA** (1 paragraph — honest and specific)
+**YOUR FIRST PIECE OF CONTENT** (a specific 100-word post they can publish this week)
+
+Their answers:
+Business belief: ${getVal('identity1')}
+Business lesson: ${getVal('identity2')}
+Message: ${getVal('identity4')}
+Change in world: ${getVal('direction1')}
+Called to help: ${getVal('direction4')}
+Camera blocker: ${getVal('camera3')}
+Reason to follow: ${getVal('follow1')}
+Avatar: ${name}, ${gender}, ${age}, ${employment}, ${relationship}, ${family}
+Avatar fear: ${nightmare}
+Avatar dream: ${dream}
+
+Write powerfully and personally. Use the exact section headers in bold.`;
+
+    const masterResult = await callClaude(masterPrompt);
+    document.getElementById('masterAiContent').innerHTML = masterResult
+      .replace(/\*\*(.*?)\*\*/g, '<div class="master-ai-section"><div class="master-ai-section-title">$1</div>')
+      .replace(/\n\n/g, '</div><div class="master-ai-section-text">') + '</div>';
+
+  } catch(e) {
+    document.getElementById('masterAiContent').innerHTML = '<p style="color:#ff6b6b;">Could not generate report. Check your connection and try again.</p>';
+  }
+
+  // Generate avatar
   const pronounHe = gender === 'Female' ? 'She' : 'He';
   const pronounHim = gender === 'Female' ? 'her' : 'him';
   const pronounHis = gender === 'Female' ? 'Her' : 'His';
 
-  // Avatar image
   document.getElementById('avatarImg').innerHTML = getAvatarSVG(gender, age);
   document.getElementById('avatarNameDisplay').textContent = name;
   document.getElementById('avatarTagline').textContent = age + ' · ' + employment + ' · ' + location + ' · ' + relationship;
 
-  // Bio
-  const bio = `${name} is a ${age} year old ${employment.toLowerCase()} living in a ${location.toLowerCase()} area. ${pronounHe} is ${relationship.toLowerCase()} and ${family.toLowerCase()}. ${pronounHe} spends time online on ${platforms}.\n\nAt night, ${name} lies awake worrying about ${nightmare.toLowerCase()}. ${pronounHis} biggest dream is ${dream.toLowerCase()} — but ${pronounHe} hasn't found the right path yet. ${pronounHe} has tried ${tried.toLowerCase()}, but something is still missing.\n\nIf ${name} found you online, everything could change. ${pronounHe} would finally ${transformation.toLowerCase()}. That is the person you are creating content for.`;
+  const bio = `${name} is a ${age} year old ${employment.toLowerCase()} living in a ${location.toLowerCase()} area. ${pronounHe} is ${relationship.toLowerCase()} and ${family.toLowerCase()}. ${pronounHe} spends time online on ${platforms}.\n\nAt night, ${name} lies awake worrying about ${nightmare.toLowerCase()}. ${pronounHis} biggest dream is ${dream.toLowerCase()} — but ${pronounHe} hasn't found the right path yet.\n\nIf ${name} found you online, everything could change. ${pronounHe} would finally ${transformation.toLowerCase()}. That is the person you are creating content for.`;
   document.getElementById('avatarBio').innerHTML = bio.replace(/\n\n/g, '<br><br>');
 
-  // Stats
   const stats = [
-    { label: 'Age', value: age },
-    { label: 'Location', value: location },
-    { label: 'Employment', value: employment },
-    { label: 'Relationship', value: relationship },
-    { label: 'Family', value: family },
-    { label: 'Online', value: platforms },
+    { label: 'Age', value: age }, { label: 'Location', value: location },
+    { label: 'Employment', value: employment }, { label: 'Relationship', value: relationship },
+    { label: 'Family', value: family }, { label: 'Online', value: platforms },
   ];
   document.getElementById('avatarStats').innerHTML = stats.map(s =>
     `<div class="avatar-stat"><div class="avatar-stat-label">${s.label}</div><div class="avatar-stat-value">${s.value}</div></div>`
   ).join('');
 
-  // Reminder
-  document.getElementById('reminderText').innerHTML = `Every time you sit down to create content, picture <em>${name}</em>. Not a crowd. Not your followers. Just ${name} — ${pronounHis.toLowerCase()} phone in hand, searching for something that makes ${pronounHim} feel less alone in what ${pronounHe}'s going through. You have lived what ${pronounHe} is living. You have answers ${pronounHe} needs. Show up for ${pronounHim}.`;
-  document.querySelectorAll('.avatar-name-inline, #reminderName').forEach(el => el.textContent = name);
+  document.getElementById('reminderText').innerHTML = `Every time you create content, picture <em>${name}</em>. Not a crowd. Just ${name} — phone in hand, searching for something that makes ${pronounHim} feel less alone. You have lived what ${pronounHe} is living. Show up for ${pronounHim}.`;
+  document.querySelectorAll('#reminderName').forEach(el => el.textContent = name);
 
   // Content ideas
   const contentIdeas = [
-    { label: 'Story post', idea: `Share the moment you realised ${myBelief.toLowerCase()}. What happened? What changed? ${name} needs to hear that someone like them had that moment too.` },
-    { label: 'Myth-busting post', idea: `"The biggest lie I believed before I started..." — address the exact fear ${name} has about ${nightmare.toLowerCase()}. Show them what's actually true.` },
-    { label: 'Lesson post', idea: `"${myExperience} taught me something I wish someone had told me earlier..." — share the single most valuable thing you've learned. Speak directly to where ${name} is right now.` },
-    { label: 'Transformation post', idea: `Show the before and after. Not your business numbers — the person you became. Help ${name} see what's possible on the other side of ${tried.toLowerCase()}.` },
-    { label: 'Question post', idea: `Ask your audience: "What's the one thing stopping you from ${dream.toLowerCase()}?" Let ${name} feel seen. The replies will write your next month of content.` },
+    { label: 'Story post', idea: `Share the moment you realised ${myBelief.toLowerCase()}. ${name} needs to hear that someone like them had that moment too.` },
+    { label: 'Myth-busting', idea: `Address the exact fear ${name} has about ${nightmare.toLowerCase()}. Show them what's actually true from your experience.` },
+    { label: 'Lesson post', idea: `"${myExperience} taught me something I wish someone had told me earlier..." Speak directly to where ${name} is right now.` },
+    { label: 'Transformation', idea: `Show who you became through building your business. Help ${name} see what's possible on the other side of their current struggle.` },
+    { label: 'Question post', idea: `Ask: "What's the one thing stopping you from ${dream.toLowerCase()}?" Let ${name} feel seen. The replies write your next month of content.` },
   ];
 
   document.getElementById('contentList').innerHTML = contentIdeas.map((c, i) =>
@@ -872,8 +1089,8 @@ function generateResults() {
 
   // Conversation starters
   const convos = [
-    `"Is it too late to start something of my own, or have I missed the window?"`,
-    `"How do I know if I'm actually good enough to go out on my own?"`,
+    `"Is it too late to start something of my own?"`,
+    `"How do I know if I'm actually good enough?"`,
     `"I'm worried about ${nightmare.toLowerCase()} — how do I get past that?"`,
     `"What does the first year actually look like? Nobody talks about the hard parts."`,
     `"How do I stop second-guessing every decision and just back myself?"`,
@@ -883,23 +1100,20 @@ function generateResults() {
     `<div class="content-item"><div class="content-num">${i+1}</div><div class="content-text">${c}</div></div>`
   ).join('');
 
-  // ChatGPT prompts
+  // GPT prompts
   const gptPrompts = [
     `I run a ${employment.toLowerCase()} in New Zealand. My ideal follower is ${name} — a ${age} ${gender.toLowerCase()} who worries about ${nightmare.toLowerCase()} and dreams of ${dream.toLowerCase()}. Write me 5 short-form social media post ideas that would stop ${name} scrolling and make them feel genuinely seen.`,
-    `I want to create a post that answers the question: "Is it too late to start something of my own?" from the perspective of someone who has built a business from nothing. My message is: ${myMessage}. Write this as a personal, honest 150-word post.`,
-    `Help me write a social media caption about the hardest lesson I've learned from ${myExperience}. It should feel personal and relatable to someone who has tried ${tried.toLowerCase()} and hasn't found what they're looking for yet. Keep it under 100 words.`,
-    `I want to create a week of content for my avatar ${name}, a ${age} ${gender.toLowerCase()} ${employment.toLowerCase()}. Their biggest fear is ${nightmare.toLowerCase()} and their biggest dream is ${dream.toLowerCase()}. Give me 5 content ideas — one for each weekday — with a one-line description for each.`,
-    `Write a short video script hook (first 5 seconds) that would make ${name} stop scrolling. The topic is: how ${myBelief.toLowerCase()} changed everything for me. Make it direct, human, and impossible to ignore.`,
+    `I want to create a post about: "${myBelief}". Write this as a personal, honest 150-word social media post in first person. Make it feel real, not corporate.`,
+    `Help me write a caption about the hardest lesson I've learned from ${myExperience}. It should resonate with someone who has tried ${tried.toLowerCase()} and hasn't found what they're looking for. Under 100 words.`,
+    `Write a week of content for my avatar ${name}, a ${age} ${gender.toLowerCase()} ${employment.toLowerCase()}. Their biggest fear is ${nightmare.toLowerCase()} and their dream is ${dream.toLowerCase()}. Give me 5 post ideas — one per weekday — with a one-line description each.`,
+    `Write a 5-second video hook that would make ${name} stop scrolling. Topic: how ${myBelief.toLowerCase()} changed everything for me. Make it direct, human, and impossible to ignore.`,
   ];
 
   document.getElementById('gptList').innerHTML = gptPrompts.map((p, i) =>
-    `<div class="gpt-item">
-      <div class="gpt-text">${p}</div>
-      <button class="copy-btn" onclick="copyPrompt(this, '${p.replace(/'/g, "\\'")}')">COPY</button>
-    </div>`
+    `<div class="gpt-item"><div class="gpt-text">${p}</div><button class="copy-btn" onclick="copyPrompt(this, \`${p.replace(/`/g, '\\`')}\`)">COPY</button></div>`
   ).join('');
 
-  // Answers
+  // Answers summary
   const answers = [
     { s: 'The Camera Moment', q: 'When speaking to a friend I feel...', k: 'camera1' },
     { s: 'The Camera Moment', q: 'On camera I become...', k: 'camera2' },
@@ -925,7 +1139,7 @@ function generateResults() {
     if (!val) return;
     if (a.s !== lastSection) {
       if (lastSection) html += '<hr style="border:none;border-top:1px dashed #E5E5E0;margin:16px 0;">';
-      html += `<p style="font-family:\'Montserrat\',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#8DC63F;margin-bottom:12px;">${a.s}</p>`;
+      html += `<p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#8DC63F;margin-bottom:12px;">${a.s}</p>`;
       lastSection = a.s;
     }
     html += `<div class="answer-item"><div class="answer-q">${a.q}</div><div class="answer-a">${val}</div></div>`;
@@ -936,6 +1150,9 @@ function generateResults() {
 
   document.getElementById('results').classList.add('visible');
   setTimeout(() => document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+
+  btn.disabled = false;
+  btn.textContent = '✦ Regenerate Full Report';
 }
 
 function copyPrompt(btn, text) {
@@ -952,7 +1169,7 @@ function getAvatarSVG(gender, age) {
   const isOlder = age === '46–55' || age === '55+';
   const skinTones = ['#F5CBA7','#E59866','#CA8A5C','#8D5524','#5C3317'];
   const skin = skinTones[Math.floor(Math.random() * skinTones.length)];
-  const hairColors = isOlder ? ['#888','#999','#aaa','#777'] : ['#2C1810','#4A2912','#1A1A1A','#8B4513','#C8A97E'];
+  const hairColors = isOlder ? ['#888','#999','#aaa'] : ['#2C1810','#4A2912','#1A1A1A','#8B4513'];
   const hair = hairColors[Math.floor(Math.random() * hairColors.length)];
 
   if (isFemale) {
@@ -965,7 +1182,6 @@ function getAvatarSVG(gender, age) {
       <circle cx="42" cy="38" r="2.5" fill="#333"/>
       <circle cx="58" cy="38" r="2.5" fill="#333"/>
       <path d="M44 47 Q50 51 56 47" stroke="#b07060" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      ${isOlder ? '<path d="M38 35 Q42 33 46 35" stroke="rgba(0,0,0,0.1)" stroke-width="1" fill="none"/>' : ''}
     </svg>`;
   } else {
     return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -975,37 +1191,40 @@ function getAvatarSVG(gender, age) {
       <circle cx="42" cy="38" r="2.5" fill="#333"/>
       <circle cx="58" cy="38" r="2.5" fill="#333"/>
       <path d="M44 47 Q50 51 56 47" stroke="#b07060" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      ${isOlder ? '<path d="M36 38 Q40 36 38 40" stroke="rgba(0,0,0,0.15)" stroke-width="1.5" fill="none"/><path d="M62 38 Q58 36 60 40" stroke="rgba(0,0,0,0.15)" stroke-width="1.5" fill="none"/>' : ''}
+      ${isOlder ? '<path d="M36 38 Q40 36 38 40" stroke="rgba(0,0,0,0.15)" stroke-width="1.5" fill="none"/>' : ''}
     </svg>`;
   }
 }
 
 function downloadAvatar() {
-  // Hide workbook answers for avatar-only print
   document.getElementById('answersCard').style.display = 'none';
-  const dlSection = document.querySelector('.download-section');
-  if (dlSection) dlSection.style.display = 'none';
+  const dl = document.querySelector('.download-section');
+  if (dl) dl.style.display = 'none';
   window.print();
   setTimeout(() => {
     document.getElementById('answersCard').style.display = '';
-    if (dlSection) dlSection.style.display = '';
+    if (dl) dl.style.display = '';
   }, 1500);
 }
 
 function downloadWorkbook() {
-  // Hide avatar card and content plan for workbook-only print
-  const toHide = ['avatarCard', 'contentCard', 'convoCard', 'gptCard'];
-  toHide.forEach(id => { document.getElementById(id).style.display = 'none'; });
+  ['avatarCard','contentCard','convoCard','gptCard','masterAiResult'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
   document.querySelectorAll('.result-card').forEach(c => {
     if (c.querySelector('#reminderText')) c.style.display = 'none';
   });
-  const dlSection = document.querySelector('.download-section');
-  if (dlSection) dlSection.style.display = 'none';
+  const dl = document.querySelector('.download-section');
+  if (dl) dl.style.display = 'none';
   window.print();
   setTimeout(() => {
-    toHide.forEach(id => { document.getElementById(id).style.display = ''; });
+    ['avatarCard','contentCard','convoCard','gptCard','masterAiResult'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = '';
+    });
     document.querySelectorAll('.result-card').forEach(c => c.style.display = '');
-    if (dlSection) dlSection.style.display = '';
+    if (dl) dl.style.display = '';
   }, 1500);
 }
 </script>
